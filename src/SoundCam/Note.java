@@ -2,13 +2,13 @@
 
 public enum Note {
   
-  DO(10000),
-  RE(44100),
-  MI(44100),
-  FA(44100),
-  SOL(44100),
-  LA(44100),
-  SI(44100);
+  DO(246),
+  RE(261),
+  MI(293),
+  FA(329),
+  SOL(349),
+  LA(391),
+  SI(440);
   
   private long frequency;
   private String name;

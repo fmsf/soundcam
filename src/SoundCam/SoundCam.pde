@@ -6,6 +6,9 @@ SoundPlayer soundPlayer;
 void setup() {
   size(640, 480);
   soundPlayer = new SoundPlayer( new Minim( this ) ) ;
+    
+  scale.moveTo(Note.FA);  
+  scale.moveTo(Note.FA);
 
 }
 
@@ -13,7 +16,7 @@ void setup() {
 void draw() {
   Note note;
   note = scale.getNote();
-  System.out.println(note.name() + " " + note.getFrequency());  
+  
   soundPlayer.play(note);
 }
 
