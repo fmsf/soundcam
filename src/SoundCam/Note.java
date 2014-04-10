@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 public enum Note {
   
@@ -19,6 +19,14 @@ public enum Note {
   
   public long getFrequency() {
     return frequency; 
+  }
+  
+  public static List<Note> getValuesList() {
+     List<Note> notes = new ArrayList(); 
+     for ( Note note : Note.values() ) {
+       notes.add(note);
+     }
+     return notes;    
   }
   
 }

@@ -14,6 +14,10 @@ public class Scale {
       return notes.get(currentNoteIndex);
    }
    
+   public int size() {
+      return notes.size(); 
+   }
+   
    public Scale moveTo(Note note) {
       int index = notes.indexOf(note); 
       int distance = index - currentNoteIndex;
