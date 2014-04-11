@@ -1,6 +1,9 @@
 import processing.video.*;
 
 public class Frame{
+    
+  private final int MAX_GREEN_RANGE = 170;
+  private final int MIN_GREEN_RANGE = 70;
   
   private int[] pixels;
   private int averageColorRed;
@@ -43,7 +46,7 @@ public class Frame{
      return (int) redSum / activePixels;
   }
   
-  public int intersectAndGetAverageGreen(Frame frame) {
+  public InstrumentType intersectAndGetAverageGreen(Frame frame) {
      int[] otherFrame = frame.getPixels();
      int activePixels = 0;
      long greenSum = 0;
@@ -54,9 +57,18 @@ public class Frame{
         greenSum += currG;
      }
      if( activePixels == 0) {
-       return 0;
+       return InstrumentType.NONE;
      }
-     return (int) greenSum / activePixels;
+     int greenAvg = (int) (greenSum / activePixels);
+     
+     
+     if (greenAvg < MIN_GREEN_RANGE){
+         return InstrumentType.PIANO;
+     } else if(greenAvg > MAX_GREEN_RANGE){
+         return InstrumentType.PIANO_CHORDS;
+     } else {
+         return InstrumentType.GUITAR_AND_PIANO;
+     }
   }
   
   public int intersectAndGetAverageBlue(Frame frame) {

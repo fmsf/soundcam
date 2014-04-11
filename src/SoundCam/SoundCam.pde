@@ -13,7 +13,7 @@ Frame oldFrame;
 
 void setup() {
   //Init sound vars...
-  scale = Scale.newOtherScale();
+  scale = Scale.newBasicScale();
   soundPlayer = new SoundPlayer( new Minim( this ), sketchPath ) ;
   colorRange = new ColorRange( Note.getValuesList() );
   
@@ -44,8 +44,10 @@ void draw() {
       
       scale.moveTo( colorRange.getNoteForColor( thisFrame.intersectAndGetAverageRed( subtractedFrame )) );
       Note note = scale.getNote();
-      soundPlayer.play(note);
+      InstrumentType instrumentType = thisFrame.intersectAndGetAverageGreen( subtractedFrame );
+      soundPlayer.play(note, instrumentType);
       print("\n Note: " + note);
+
       
       System.arraycopy( subtractedFrame.getPixels(), 0, pixels, 0, subtractedFrame.getPixels().length );
       updatePixels();

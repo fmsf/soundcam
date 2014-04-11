@@ -19,18 +19,23 @@ public class SoundPlayer {
        this.mp3Instrument = new Mp3Instrument( this.minim , this.path);
     }
     
-    public void play(Note note) {
+    public void play(Note note, InstrumentType instrumentType) {
         if ( note != currentNote ) {
           
-          
-          mp3Instrument.playPiano(note);
-          
-          mp3Instrument.playGuitar(note);
-          
+          switch (instrumentType){
+             case PIANO:
+                mp3Instrument.playPiano(note);
+                break;
+             case PIANO_CHORDS:
+                mp3Instrument.playPianochords(note);
+                break;
+             case GUITAR_AND_PIANO:
+                mp3Instrument.playPiano(note);
+                mp3Instrument.playGuitar(note);
+          }
           output.unmute();
           currentNote = note;
         }
-    }
-  
+    } 
   
 }

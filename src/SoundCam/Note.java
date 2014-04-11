@@ -11,7 +11,14 @@ public enum Note {
   g55, g56, g67, g68;
   
   
-  
+  public Note next()  
+  {  
+      Note notes[] = Note.values();  
+      int ordinal = this.ordinal();  
+      ordinal = ordinal + 2 % notes.length;  
+      return notes[ordinal];  
+  } 
+
   
   
   private Note() {}
