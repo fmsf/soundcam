@@ -2,13 +2,13 @@ import java.util.*;
 
 public enum Note {
   
-  DO(246),
-  RE(261),
-  MI(293),
-  FA(329),
-  SOL(349),
-  LA(391),
-  SI(440);
+  DO(2610),
+  RE(2930),
+  MI(3290),
+  FA(3490),
+  SOL(3920),
+  LA(4400),
+  SI(4930);
   
   private long frequency;
   private String name;

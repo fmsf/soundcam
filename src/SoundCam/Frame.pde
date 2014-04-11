@@ -2,7 +2,6 @@ import processing.video.*;
 
 public class Frame{
   
-  private int numPixels;
   private int[] pixels;
   private int averageColorRed;
   private int averageColorGreen;
@@ -30,8 +29,8 @@ public class Frame{
      int activePixels = 0;
      long redSum = 0;
      for ( int i = 0; i < otherFrame.length; i++ ) {
-        activePixels++;
         color currColor = this.pixels[i];
+        activePixels++;
         int currR = (currColor >> 16) & 0xFF; // Like red(), but faster
         redSum += currR;
      }
@@ -78,7 +77,7 @@ public class Frame{
     int[] newFrame = new int[otherFrame.length];
     
     int movementSum = 0; // Amount of movement in the frame
-    for (int i = 0; i < numPixels; i++) { // For each pixel in the video frame...
+    for (int i = 0; i < newFrame.length; i++) { // For each pixel in the video frame...
       color currColor = this.pixels[i];
       color prevColor = otherFrame[i];
       
@@ -101,10 +100,7 @@ public class Frame{
       int diffB = abs(currB - prevB);
       
       // Render the difference image to the screen
-      pixels[i] = color(diffR, diffG, diffB);
-      
-      // Save the current color into the 'previous' buffer
-      newFrame[i] = currColor;
+      newFrame[i] = color(diffR, diffG, diffB);
     }
     
     return new Frame(newFrame);

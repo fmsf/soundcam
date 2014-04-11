@@ -19,7 +19,7 @@ void setup() {
   
   //Init video vars...
   size(640, 480);
-  frameRate(2);
+  frameRate(1);
   // This the default video input, see the GettingStartedCapture 
   // example if it creates an error
   video = new Capture(this, width, height);
@@ -27,6 +27,7 @@ void setup() {
   video.start(); 
   // Create an array to store the previously captured frame
   loadPixels();
+  oldFrame = new Frame(video.pixels);
 }
 
 void draw() {
@@ -46,7 +47,7 @@ void draw() {
       soundPlayer.play(note);
       print("\n Note: " + note);
       
-      System.arraycopy( thisFrame.getPixels(), 0, pixels, 0, thisFrame.getPixels().length );
+      System.arraycopy( subtractedFrame.getPixels(), 0, pixels, 0, subtractedFrame.getPixels().length );
       updatePixels();
     }
     oldFrame = thisFrame;
