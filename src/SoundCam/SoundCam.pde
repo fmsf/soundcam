@@ -13,13 +13,13 @@ Frame oldFrame;
 
 void setup() {
   //Init sound vars...
-  scale = Scale.newBasicScale();
+  scale = Scale.newExtremeScale();
   soundPlayer = new SoundPlayer( new Minim( this ) ) ;
   colorRange = new ColorRange( Note.getValuesList() );
   
   //Init video vars...
   size(640, 480);
-  frameRate(1);
+  frameRate(2);
   // This the default video input, see the GettingStartedCapture 
   // example if it creates an error
   video = new Capture(this, width, height);

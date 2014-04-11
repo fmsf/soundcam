@@ -59,4 +59,16 @@ public class Scale {
              .add(Note.SI)
              .build();
    }
+   
+   public static Scale newExtremeScale() {
+      Builder builder = new Builder();
+      return builder.add(Note.FA) 
+              .add(Note.DO)
+             .add(Note.RE)
+             .add(Note.MI)
+             .add(Note.LA)
+             .add(Note.SI)
+             .add(Note.SOL)
+             .build();
+   }
 }
