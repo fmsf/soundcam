@@ -29,10 +29,13 @@ public class Frame{
      int activePixels = 0;
      long redSum = 0;
      for ( int i = 0; i < otherFrame.length; i++ ) {
-        color currColor = this.pixels[i];
-        activePixels++;
-        int currR = (currColor >> 16) & 0xFF; // Like red(), but faster
-        redSum += currR;
+       color currColor = this.pixels[i];  
+       int thisFrameRed = (currColor >> 16) & 0xFF; 
+       int otherFrameRed = (otherFrame[i] >> 16) & 0xFF;
+       if(thisFrameRed != otherFrameRed) {
+          activePixels++;        
+          redSum += thisFrameRed;
+       }
      }
      if( activePixels == 0) {
        return 0;

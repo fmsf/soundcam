@@ -14,12 +14,14 @@ public class Mp3Instrument
   } 
   
   public void playPiano( Note note ){
-      System.out.println("playPiano - note: " + note); 
+      System.out.println("play piano - note: " + note); 
       player = this.minim.loadFile("data/piano/"+note.name()+".mp3");
       player.play();
   }
   
   public void playGuitar( Note note ){
+          System.out.println("play guitar - note: " + note); 
+
       player = this.minim.loadFile("data/piano/"+note.name().charAt(0)+".mp3"); 
       player.play(1500);
   }
