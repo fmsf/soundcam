@@ -15,8 +15,10 @@ public class SoundPlayer {
     
     public void play(Note note) {
         if ( note != currentNote ) {          
-          output.addSignal( new SquareWave(440, 1, note.getFrequency()) );
-          output.addEffect( new LowPassSP(200, note.getFrequency()) );
+          //output.addSignal( new SquareWave(440, 1, note.getFrequency()) );
+          //output.addEffect( new LowPassSP(200, note.getFrequency()) );
+          output.playNote( 0.0f, 0.9f, new MyInstrument( 246.0f, output, "SINE" ) );
+                    
           output.unmute();
           currentNote = note;
         }
