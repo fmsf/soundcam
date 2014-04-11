@@ -19,47 +19,6 @@ public class Mp3Instrument
   public Mp3Instrument( Minim minim , String path)
   {
       this.minim = minim;
-      SetupData(path);
-  }
-  
-  private void SetupData(String path){
-    File[] filesGuitar = listFiles(path+"/data/guitar/");
-    guitarData = ReadData(filesGuitar, path+"/data/guitar/");
-    File[] filesPiano = listFiles(path+"/data/piano");
-    pianoData = ReadData(filesPiano, path+"/data/piano/");
-  }
-  
-  private ArrayList<String> ReadData(File[] files, String path){
-    ArrayList<String> data = new ArrayList<String>();
-    for (int i = 0; i < files.length; i++) {
-      File f = files[i];
-      data.add(path + f.getName());
-      //System.out.println("-"+data.get(i));
-    }
-    System.out.println("\nSIZE"+data.size());
-    return data;
-  }
-  
-  private String[] listFileNames(String dir) {
-    File file = new File(dir);
-    if (file.isDirectory()) {
-      String names[] = file.list();
-      return names;
-    } else {
-      // If it's not a directory
-      return null;
-    }
-  }
-
-  private File[] listFiles(String dir) {
-    File file = new File(dir);
-    if (file.isDirectory()) {
-      File[] files = file.listFiles();
-      return files;
-    } else {
-      // If it's not a directory
-      return null;
-    }
   } 
   
   public void playPiano( Note note ){
