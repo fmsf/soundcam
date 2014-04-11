@@ -9,6 +9,8 @@ public class Mp3Instrument
   private Minim minim;
   private ArrayList<String> pianoData;
   private ArrayList<String> guitarData;
+  private int[] guitarFileIndexes = new int[]{8, 1, 2, 3, 4, 5, 6};
+  private int[] pianoFileIndexes = new int[]{0, 4, 6, 12, 19, 22, 26};
   
   public Mp3Instrument( Minim minim , String path)
   {
@@ -56,7 +58,8 @@ public class Mp3Instrument
     }
   } 
   
-  public void playPiano( Note note, int[] data ){
+  public void playPiano( Note note ){
+      int data[] = pianoFileIndexes;
         System.out.println("playPiano - note: " + note); 
        switch (note) {
             case DO:
@@ -84,8 +87,8 @@ public class Mp3Instrument
       player.play();
   }
   
-  public void playGuitar( Note note, int[] data ){
-    
+  public void playGuitar( Note note ){
+      int data[] = guitarFileIndexes;
        switch (note) {
             case DO:
                     player = this.minim.loadFile(guitarData.get(data[0]));//8

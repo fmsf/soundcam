@@ -23,10 +23,10 @@ public class SoundPlayer {
           Mp3Instrument mi = new Mp3Instrument( this.minim , this.path);
           
           //default values for piano mp3 sounds, DO to RE [0, 4, 6, 12, 19, 22, 26], Available: 30 sounds
-          mi.playPiano(note, new int[]{0, 4, 6, 12, 19, 22, 26});
+          mi.playPiano(note);
           
           //default values for guitar mp3 sounds, DO to RE [8, 1, 2, 3, 4, 5, 6], Available: 10 sounds
-          mi.playGuitar(note, new int[]{8, 1, 2, 3, 4, 5, 6});
+          mi.playGuitar(note);
           
           output.unmute();
           currentNote = note;
