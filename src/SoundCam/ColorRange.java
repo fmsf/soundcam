@@ -14,7 +14,7 @@ public class ColorRange {
    
    // TODO: verify this function
    public Note getNoteForColor(int value) {
-       System.out.println("value:" + value);
+       System.out.println(" with color value:" + value);
        int currentIncrement = interval;
        for ( int i = 0; i < notes.size(); i++ ) {
           if ( value < currentIncrement ) {

@@ -12,28 +12,27 @@ SoundPlayer soundPlayer;
 Frame oldFrame;
 
 void setup() {
-  size(640, 480);
-  frameRate(1);
-  
-  // This the default video input, see the GettingStartedCapture 
-  // example if it creates an error
-  video = new Capture(this, width, height);
-  
-  // Start capturing the images from the camera
-  video.start(); 
-  
-  // Create an array to store the previously captured frame
-  loadPixels();
-  
   //Init sound vars...
   scale = Scale.newBasicScale();
   soundPlayer = new SoundPlayer( new Minim( this ) ) ;
   colorRange = new ColorRange( Note.getValuesList() );
+  
+  //Init video vars...
+  size(640, 480);
+  frameRate(2);
+  // This the default video input, see the GettingStartedCapture 
+  // example if it creates an error
+  video = new Capture(this, width, height);
+  // Start capturing the images from the camera
+  video.start(); 
+  // Create an array to store the previously captured frame
+  loadPixels();
 }
 
 void draw() {
   if (video.available()) {
-    
+    // When using video to manipulate the screen, use video.available() and
+    // video.read() inside the draw() method so that it's safe to draw to the screen
     video.read(); // Read the new frame from the camera
     video.loadPixels(); // Make its pixels[] array available
     
@@ -44,12 +43,11 @@ void draw() {
       
       scale.moveTo( colorRange.getNoteForColor( thisFrame.intersectAndGetAverageRed( subtractedFrame )) );
       Note note = scale.getNote();
-      //soundPlayer.play(note);
+      soundPlayer.play(note);
       print("\n Note: " + note);
       
-      pixels = thisFrame.getPixels();
+      System.arraycopy( thisFrame.getPixels(), 0, pixels, 0, thisFrame.getPixels().length );
       updatePixels();
-              
     }
     oldFrame = thisFrame;
   }
