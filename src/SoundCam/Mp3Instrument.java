@@ -22,7 +22,7 @@ public class Mp3Instrument
   public void playGuitar( Note note ){
           System.out.println("play guitar - note: " + note); 
 
-      player = this.minim.loadFile("data/piano/"+note.name().charAt(0)+".mp3"); 
+      player = this.minim.loadFile("data/guitar/"+note.name().charAt(0)+".mp3"); 
       player.play(1500);
   }
 }
