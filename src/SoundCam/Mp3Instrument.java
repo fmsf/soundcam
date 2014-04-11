@@ -7,8 +7,6 @@ public class Mp3Instrument
   
   private AudioPlayer player;
   private Minim minim;
-  private ArrayList<String> pianoData;
-  private ArrayList<String> guitarData;
   
   //default values for piano mp3 sounds, DO to RE [0, 4, 6, 12, 19, 22, 26], Available: 30 sounds
   private int[] guitarFileIndexes = new int[]{8, 1, 2, 3, 4, 5, 6};
