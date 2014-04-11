@@ -1,10 +1,6 @@
 import ddf.minim.*;
 import ddf.minim.ugens.*;
 
-
-
-// to make an Instrument we must define a class
-// that implements the Instrument interface.
 public class MyInstrument implements Instrument
 {
   private AudioOutput out;
@@ -34,18 +30,12 @@ public class MyInstrument implements Instrument
     ampEnv.patch( wave.amplitude );
   }
   
-  // this is called by the sequencer when this instrument
-  // should start making sound. the duration is expressed in seconds.
   public void noteOn( float duration )
   {
-    // start the amplitude envelope
     ampEnv.activate( duration, 0.5f, 0 );
-    // attach the oscil to the output so it makes sound
     wave.patch( out );
   }
   
-  // this is called by the sequencer when the instrument should
-  // stop making sound
   public void noteOff()
   {
     wave.unpatch( out );
