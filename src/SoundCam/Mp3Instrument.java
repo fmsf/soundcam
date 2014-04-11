@@ -9,7 +9,11 @@ public class Mp3Instrument
   private Minim minim;
   private ArrayList<String> pianoData;
   private ArrayList<String> guitarData;
+  
+  //default values for piano mp3 sounds, DO to RE [0, 4, 6, 12, 19, 22, 26], Available: 30 sounds
   private int[] guitarFileIndexes = new int[]{8, 1, 2, 3, 4, 5, 6};
+  
+  //default values for guitar mp3 sounds, DO to RE [8, 1, 2, 3, 4, 5, 6], Available: 10 sounds
   private int[] pianoFileIndexes = new int[]{0, 4, 6, 12, 19, 22, 26};
   
   public Mp3Instrument( Minim minim , String path)
@@ -60,58 +64,14 @@ public class Mp3Instrument
   
   public void playPiano( Note note ){
       int data[] = pianoFileIndexes;
-        System.out.println("playPiano - note: " + note); 
-       switch (note) {
-            case DO:
-                    player = this.minim.loadFile(pianoData.get(data[0]));//0
-                    break;
-            case RE:
-                    player = this.minim.loadFile(pianoData.get(data[1]));//4
-                    break;
-            case MI:
-                    player = this.minim.loadFile(pianoData.get(data[2]));//6
-                    break;
-            case FA:
-                    player = this.minim.loadFile(pianoData.get(data[3]));//12
-                    break;
-            case SOL:
-                    player = this.minim.loadFile(pianoData.get(data[4]));//19
-                    break;
-            case LA:
-                    player = this.minim.loadFile(pianoData.get(data[5]));//22
-                    break;
-            case SI:
-                    player = this.minim.loadFile(pianoData.get(data[6]));//26
-
-      }
+      System.out.println("playPiano - note: " + note); 
+      player = this.minim.loadFile("data/piano/"+note.name()+".mp3");
       player.play();
   }
   
   public void playGuitar( Note note ){
       int data[] = guitarFileIndexes;
-       switch (note) {
-            case DO:
-                    player = this.minim.loadFile(guitarData.get(data[0]));//8
-                    break;
-            case RE:
-                    player = this.minim.loadFile(guitarData.get(data[1]));//1
-                    break;
-            case MI:
-                    player = this.minim.loadFile(guitarData.get(data[2]));//2
-                    break;
-            case FA:
-                    player = this.minim.loadFile(guitarData.get(data[3]));//3
-                    break;
-            case SOL:
-                    player = this.minim.loadFile(guitarData.get(data[4]));//4
-                    break;
-            case LA:
-                    player = this.minim.loadFile(guitarData.get(data[5]));//5
-                    break;
-            case SI:
-                    player = this.minim.loadFile(guitarData.get(data[6]));//6
-
-      }
+       
       player.play(1500);
   }
 }

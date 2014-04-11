@@ -9,24 +9,24 @@ public class SoundPlayer {
     private Note currentNote;
     private Minim minim; 
     private String path;
-     
+    private Mp3Instrument mi; 
       
     public SoundPlayer(Minim minim, String path) {
-       output = minim.getLineOut();
-       currentNote = null;
+       this.output = minim.getLineOut();
+       this.currentNote = null;
        this.minim = minim;
        this.path = path;
+       this.mi = new Mp3Instrument( this.minim , this.path);
     }
     
     public void play(Note note) {
         if ( note != currentNote ) {
-          Mp3Instrument mi = new Mp3Instrument( this.minim , this.path);
+          
           
           //default values for piano mp3 sounds, DO to RE [0, 4, 6, 12, 19, 22, 26], Available: 30 sounds
           mi.playPiano(note);
           
-          //default values for guitar mp3 sounds, DO to RE [8, 1, 2, 3, 4, 5, 6], Available: 10 sounds
-          mi.playGuitar(note);
+          //mi.playGuitar(note);
           
           output.unmute();
           currentNote = note;

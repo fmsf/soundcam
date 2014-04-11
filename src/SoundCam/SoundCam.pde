@@ -13,7 +13,7 @@ Frame oldFrame;
 
 void setup() {
   //Init sound vars...
-  scale = Scale.newExtremeScale();
+  scale = Scale.newBasicScale();
   soundPlayer = new SoundPlayer( new Minim( this ), sketchPath ) ;
   colorRange = new ColorRange( Note.getValuesList() );
   

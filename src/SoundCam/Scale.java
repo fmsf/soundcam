@@ -50,25 +50,36 @@ public class Scale {
   
    public static Scale newBasicScale() {
       Builder builder = new Builder();
-      return builder.add(Note.DO)
-             .add(Note.RE)
-             .add(Note.MI)
-             .add(Note.FA)
-             .add(Note.SOL)
-             .add(Note.LA)
-             .add(Note.SI)
-             .build();
+      return builder.add(Note.a57)
+                    .add(Note.a58)
+                    .add(Note.a69)
+                    .add(Note.a70)
+                    .add(Note.b59)
+                    .add(Note.b71)
+                    .add(Note.c48)
+                    .add(Note.c49)
+                    .add(Note.c60)
+                    .add(Note.c61)
+                    .add(Note.c72)
+                    .add(Note.c73)
+                    .add(Note.d50)
+                    .add(Note.d51)
+                    .add(Note.d62)
+                    .add(Note.d63)
+                    .add(Note.d74)
+                    .add(Note.d75)
+                    .add(Note.e52)
+                    .add(Note.e64)
+                    .add(Note.e76)
+                    .add(Note.f53)
+                    .add(Note.f54)
+                    .add(Note.f65)
+                    .add(Note.f66)
+                    .add(Note.g55)
+                    .add(Note.g56)
+                    .add(Note.g67)
+                    .add(Note.g68)
+            .build();
    }
    
-   public static Scale newExtremeScale() {
-      Builder builder = new Builder();
-      return builder.add(Note.FA) 
-              .add(Note.DO)
-             .add(Note.RE)
-             .add(Note.MI)
-             .add(Note.LA)
-             .add(Note.SI)
-             .add(Note.SOL)
-             .build();
-   }
 }
