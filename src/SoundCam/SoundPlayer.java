@@ -17,25 +17,27 @@ public class SoundPlayer {
        this.minim = minim;
        this.path = path;
        this.mp3Instrument = new Mp3Instrument( this.minim , this.path);
+       output.unmute();
     }
     
     public void play(Note note, InstrumentType instrumentType) {
-        if ( note != currentNote ) {
-          
+        //if ( note != currentNote ) {
           switch (instrumentType){
              case PIANO:
                 mp3Instrument.playPiano(note);
                 break;
              case PIANO_CHORDS:
-                //mp3Instrument.playPianochords(note);
+                mp3Instrument.playPiano(note);
+                mp3Instrument.playPiano(note.next(4));
+                mp3Instrument.playPiano(note.next(3));
                 break;
              case GUITAR_AND_PIANO:
                 mp3Instrument.playPiano(note);
                 mp3Instrument.playGuitar(note);
           }
-          output.unmute();
+          
           currentNote = note;
-        }
+        //}
     } 
   
 }

@@ -11,11 +11,11 @@ public enum Note {
   g55, g56, g67, g68;
   
   
-  public Note next()  
+  public Note next(int step)  
   {  
       Note notes[] = Note.values();  
       int ordinal = this.ordinal();  
-      ordinal = ordinal + 2 % notes.length;  
+      ordinal = ordinal + step % notes.length;  
       return notes[ordinal];  
   } 
 
