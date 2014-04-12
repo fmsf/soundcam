@@ -45,11 +45,10 @@ void draw() {
       scale.moveTo( colorRange.getNoteForColor( thisFrame.intersectAndGetAverageRed( subtractedFrame )) );
       Note note = scale.getNote();
       InstrumentType instrumentType = thisFrame.intersectAndGetAverageGreen( subtractedFrame );
-      soundPlayer.play(note,instrumentType);
       
+      soundPlayer.play(note,instrumentType);
       //soundPlayer.play(Note.c48, InstrumentType.PIANO_CHORDS);
       print("\n Note: " + note);
-
       
       System.arraycopy( subtractedFrame.getPixels(), 0, pixels, 0, subtractedFrame.getPixels().length );
       updatePixels();

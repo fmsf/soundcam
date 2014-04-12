@@ -2,8 +2,8 @@ import processing.video.*;
 
 public class Frame{
     
-  private final int MAX_GREEN_RANGE = 170;
-  private final int MIN_GREEN_RANGE = 70;
+  private final int MAX_GREEN_RANGE = 100;
+  private final int MIN_GREEN_RANGE = 40;
   
   private int[] pixels;
   private int averageColorRed;
