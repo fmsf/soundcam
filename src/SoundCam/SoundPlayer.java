@@ -27,7 +27,7 @@ public class SoundPlayer {
                 mp3Instrument.playPiano(note);
                 break;
              case PIANO_CHORDS:
-                mp3Instrument.playPianochords(note);
+                //mp3Instrument.playPianochords(note);
                 break;
              case GUITAR_AND_PIANO:
                 mp3Instrument.playPiano(note);
